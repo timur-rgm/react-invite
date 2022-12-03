@@ -8,6 +8,7 @@ function App() {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [searchValue, setSearchValue] = useState<string>('');
   const [invites, setInvites] = useState<number[]>([]);
+  const [success, setSuccess] = useState<boolean>(false);
 
   useEffect(() => {
     fetch('https://6353e24dccce2f8c02fe8dcd.mockapi.io/users')
@@ -29,17 +30,25 @@ function App() {
     }
   };
 
+  const onSendInvitesClick = () => {
+    setSuccess(true);
+  };
+
   return (
     <div className="App">
-      <UsersList
-        users={users}
-        isLoading={isLoading}
-        searchValue={searchValue}
-        onSearchValueChange={onSearchValueChange}
-        invites={invites}
-        onInviteClick={onInviteClick}
-      />
-      {/* <Success /> */}
+      {
+        success
+        ? <Success />
+        : <UsersList
+            users={users}
+            isLoading={isLoading}
+            searchValue={searchValue}
+            onSearchValueChange={onSearchValueChange}
+            invites={invites}
+            onInviteClick={onInviteClick}
+            onSendInvitesClick={onSendInvitesClick}
+          />
+      }
     </div>
   );
 }

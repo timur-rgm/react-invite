@@ -10,6 +10,7 @@ type UsersListComponentType = {
   onSearchValueChange: (evt: ChangeEvent<HTMLInputElement>) => void,
   invites: number[],
   onInviteClick: (id: number) => void,
+  onSendInvitesClick: () => void,
 }
 
 function UsersList({
@@ -19,6 +20,7 @@ function UsersList({
   onSearchValueChange,
   invites,
   onInviteClick,
+  onSendInvitesClick,
 }: UsersListComponentType): JSX.Element {
   
   return (
@@ -65,7 +67,12 @@ function UsersList({
           </ul>
       }
 
-      <button className="send-invite-btn">Отправить приглашение</button>
+      <button
+        onClick={onSendInvitesClick}
+        className="send-invite-btn"
+      >
+        Отправить приглашение
+      </button>
     </>
   );
 };
