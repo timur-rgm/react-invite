@@ -9,4 +9,5 @@
 * React
 * TypeScript
 * SCSS
+* React Content Loader
 * Jest, React Testing Library
