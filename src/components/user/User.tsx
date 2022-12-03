@@ -2,15 +2,18 @@ import {UserType} from '../../types/users';
 
 type UserComponentType = {
   item: UserType,
+  isInvited: boolean,
+  onInviteClick: (id: number) => void,
 }
 
-function User({item}: UserComponentType): JSX.Element {
+function User({item, isInvited, onInviteClick}: UserComponentType): JSX.Element {
   const {id, email, firstName, lastName, avatar} = item;
 
   return (
     <li>
       <div>
         <img className="avatar" src={avatar} alt="User" />
+
         <div>
           <h3>{firstName} {lastName}</h3>
           <p>
@@ -21,7 +24,13 @@ function User({item}: UserComponentType): JSX.Element {
           </p>
         </div>
       </div>
-      <img className="action" src="/assets/plus.svg" alt="Action" />
+
+      <img
+        onClick={() => onInviteClick(id)}
+        className="action"
+        src={`/assets/${isInvited ? 'minus' : 'plus'}.svg`}
+        alt="Action"
+      />
     </li>
   );
 };

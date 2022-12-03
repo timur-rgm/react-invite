@@ -8,6 +8,8 @@ type UsersListComponentType = {
   users: UsersType,
   searchValue: string,
   onSearchValueChange: (evt: ChangeEvent<HTMLInputElement>) => void,
+  invites: number[],
+  onInviteClick: (id: number) => void,
 }
 
 function UsersList({
@@ -15,6 +17,8 @@ function UsersList({
   users,
   searchValue,
   onSearchValueChange,
+  invites,
+  onInviteClick,
 }: UsersListComponentType): JSX.Element {
   
   return (
@@ -51,7 +55,11 @@ function UsersList({
                 );
               })
               .map((user) => 
-                <User item={user} />
+                <User
+                  item={user}
+                  isInvited={invites.includes(user.id)}
+                  onInviteClick={onInviteClick}
+                />
               )
             }
           </ul>
