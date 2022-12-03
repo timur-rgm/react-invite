@@ -12,7 +12,10 @@ function App() {
 
   return (
     <div className="App">
-      <UsersList isLoading={false} />
+      <UsersList
+        users={users}
+        isLoading={false}
+      />
       {/* <Success /> */}
     </div>
   );

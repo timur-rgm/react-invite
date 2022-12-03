@@ -1,11 +1,13 @@
 import Skeleton from '../skeleton/Skeleton';
 import User from '../user/User';
+import {UsersType} from '../../types/users';
 
 type UsersListType = {
   isLoading: boolean,
+  users: UsersType,
 }
 
-function UsersList({isLoading}: UsersListType): JSX.Element {
+function UsersList({isLoading, users}: UsersListType): JSX.Element {
   
   return (
     <>
@@ -15,17 +17,21 @@ function UsersList({isLoading}: UsersListType): JSX.Element {
         </svg>
         <input type="text" placeholder="Найти пользователя..." />
       </div>
-      {isLoading ? (
-        <div className="skeleton-list">
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-        </div>
-      ) : (
-        <ul className="users-list">
-          <User />
-        </ul>
-      )}
+
+      {
+        isLoading
+        ? <div className="skeleton-list">
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </div>
+        : <ul className="users-list">
+            {users.map((user) => 
+              <User item={user} />
+            )}
+          </ul>
+      }
+
       <button className="send-invite-btn">Отправить приглашение</button>
     </>
   );
