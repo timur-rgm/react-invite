@@ -1,10 +1,10 @@
-import {UserItemType} from '../../types/users';
+import {UserType} from '../../types/users';
 
-type UserType = {
-  item: UserItemType,
+type UserComponentType = {
+  item: UserType,
 }
 
-function User({item}: UserType): JSX.Element {
+function User({item}: UserComponentType): JSX.Element {
   const {id, email, firstName, lastName, avatar} = item;
 
   return (

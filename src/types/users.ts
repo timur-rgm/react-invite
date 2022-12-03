@@ -1,4 +1,4 @@
-export type UserItemType = {
+export type UserType = {
   id: number,
   email: string, 
   firstName: string,
@@ -6,4 +6,4 @@ export type UserItemType = {
   avatar: string,
 };
 
-export type UsersType = UserItemType[];
+export type UsersType = UserType[];
