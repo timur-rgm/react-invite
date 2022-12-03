@@ -38,7 +38,10 @@ function App() {
     <div className="App">
       {
         success
-        ? <Success />
+        ? <Success
+            count={invites.length}
+          />
+          
         : <UsersList
             users={users}
             isLoading={isLoading}
