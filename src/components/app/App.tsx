@@ -4,17 +4,19 @@ import UsersList from '../users-list/Users-list';
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   fetch('https://6353e24dccce2f8c02fe8dcd.mockapi.io/users')
     .then((response) => response.json())
     .then((users) => setUsers(users))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))
+    .finally(() => setLoading(false));
 
   return (
     <div className="App">
       <UsersList
         users={users}
-        isLoading={false}
+        isLoading={isLoading}
       />
       {/* <Success /> */}
     </div>
