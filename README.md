@@ -2,7 +2,7 @@
 
 Отправка приглашений списку пользователей.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5337091a-fa43-4041-9c74-c5fb2e783fbb/deploy-status)](https://spa-six-cities.netlify.app/)
+Демонстрация - [![Netlify Status](https://api.netlify.com/api/v1/badges/79a21ca7-dafd-4f1a-8d29-76187665c38f/deploy-status)](https://app.netlify.com/sites/timur-react-invite/deploys)
 
 ## Стек технологий
 
